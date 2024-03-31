@@ -2,6 +2,8 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品一覧</title>
     <style>
@@ -23,18 +25,21 @@
             align-items: center;
             text-align: center;
             margin: 15px;
+            border: 1px solid #ccc; /* 商品カードのボーダーを追加 */
+            padding: 10px; /* 商品カードの余白を追加 */
         }
         .product-card input[type="checkbox"] {
             position: absolute;
             opacity: 0;
         }
         .product-image {
-            width: 5cm;
-            height: 5cm;
+            width: 150px; /* 画像の幅を固定 */
+            height: 150px; /* 画像の高さを固定 */
             cursor: pointer;
         }
         h2 {
-            font-size: 12px;
+            font-size: 16px; /* 商品名のフォントサイズを変更 */
+            margin-bottom: 5px; /* 商品名の下の余白を追加 */
         }
         h1 {
             font-size: 24px;
@@ -42,16 +47,18 @@
         }
 
         #checkout button {
-            width: 5cm; /* 横幅を5センチに設定 */
-            height: 1cm; /* 縦幅を2cmに設定 */
+            width: 150px; /* 決済ボタンの幅を固定 */
+            height: 40px; /* 決済ボタンの高さを固定 */
             background-color: #06C755; /* カラーを指定 */
             color: white; /* テキストの色を白に設定 */
             border: none; /* ボーダーを設定しない */
             cursor: pointer; /* カーソルをポインターに変更 */
+            margin-top: 20px; /* ボタンの上の余白を追加 */
         }
 
         #total-price {
-            font-size: 20px; /* 例としてフォントサイズを大きくします */
+            font-size: 20px; /* 合計金額のフォントサイズを変更 */
+            margin-top: 20px; /* 合計金額の上の余白を追加 */
         }
 
         /* 選択された商品のスタイル */
@@ -148,11 +155,6 @@
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script>
-        $(document).ready(function () {
-            const liffId = "2003820586-rBmZKQmN"; // あなたのLiff IDに置き換える
-            initializeLiff(liffId);
-        })
-
         function initializeLiff(liffId) {
             liff.init({
                 liffId: liffId
@@ -204,6 +206,10 @@
             checkbox.addEventListener('change', () => updateTotalPrice());
         });
 
+        document.addEventListener('DOMContentLoaded', function() {
+            const liffId = "2003820586-rBmZKQmN"; // あなたのLiff IDに置き換える
+            initializeLiff(liffId);
+        });
     </script>
 </body>
 </html>
